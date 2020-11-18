@@ -7,13 +7,13 @@
 
 panel:
   lastmod: "Recent Update"
-  trending_tags: "Trending Tags"
-  toc: "Contents"
+  trending_tags: "Tendencia de Tags"
+  toc: "Tabla de Contenido"
 
 post:
-  relate_posts: "Further Reading"
+  relate_posts: "Otras Publicaciones"
   button:
-    next: Newer
-    previous: Older
+    next: Recientes
+    previous: Antiguas
 
-search_hint: "Search"   # text show on search bar
+search_hint: "Buscador"   # text show on search bar
