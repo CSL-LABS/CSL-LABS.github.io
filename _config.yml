@@ -21,7 +21,7 @@ url: 'https://csl-labs.github.io'
 
 author: CSL                  # change to your full name
 
-avatar: /assets/img/sample/avatar.jpg   # support internet resources
+avatar: /assets/img/base/logoCSL.png   # support internet resources
 
 github:
   username: csl-labs             # change to your github username
@@ -50,7 +50,7 @@ google_site_verification: google_meta_tag_verification # change to your verifica
 baseurl: ''
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: Asia/Shanghai
+timezone: America/Bogota
 
 google_analytics:
   id: ''          # Fill with your Google Analytics ID
@@ -140,7 +140,7 @@ defaults:
     scope:
       path: categories
     values:
-      tab_active: Categories
+      tab_active: Categorias
       location: Category
       breadcrumb:
         -
