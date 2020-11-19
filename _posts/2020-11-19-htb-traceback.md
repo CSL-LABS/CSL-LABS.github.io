@@ -8,11 +8,11 @@ image: /assets/htb/01_traceback/portada.PNG
 ---
 ## Decripción del entorno
 ### <span style="color:green">Atacante</span>
-|:------------|:---------------|
+
 | OS          | Kali Linux     |
 | IP          | 10.10.15.14    |
 ### <span style="color:green">Maquina Objetivo</span>
-|:------------|:--------------------|
+
 | OS          | Linux               |
 | IP          | 10.10.10.181        |
 | Dificultad  | 4.8/10 / **Medium** |
