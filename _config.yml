@@ -14,7 +14,7 @@ tagline: WriteUps, HackTheBox, CTF's, CheatSheet, Wargames & more...  # it will 
 
 description: >-                        # used by seo meta and the atom feed
   Blog Open Source, con writeups de HackTheBox en español,
-  solucionarios de retos de seguridad y hacking.
+  solucionarios de retos de seguridad, hacking, wargames y ctf's en español.
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'https://csl-labs.github.io'
