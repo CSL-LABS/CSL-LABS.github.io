@@ -6,16 +6,17 @@ categories: [HackTheBox, Medium]
 tags: [HTB, SSH, NodeJS]
 image: /assets/htb/01_traceback/portada.PNG
 ---
-
 ## Decripción del entorno
-- <span style="color:blue">Atacante</span>
-    - OS: Kali Linux
-    - IP: 10.10.15.14
-- <span style="color:green">Maquina Objetivo</span>
-    - OS: Linux
-    - IP: 10.10.10.181
-    - Dificultad: 4.8/10 | **Medium**
-    - URL: [**TraceBack**](https://www.hackthebox.eu/home/machines/profile/233)
+### <span style="color:green">Atacante</span>
+|:------------|:---------------|
+| OS          | Kali Linux     |
+| IP          | 10.10.15.14    |
+### <span style="color:green">Maquina Objetivo</span>
+|:------------|:--------------------|
+| OS          | Linux               |
+| IP          | 10.10.10.181        |
+| Dificultad  | 4.8/10 / **Medium** |
+| URL         | [**TraceBack**](https://www.hackthebox.eu/home/machines/profile/233)    |
 
 ## Enumeración
 Se realiza la enumeración habitual para el reconocimiento e identificación de los puertos abiertos en el sistema: 
@@ -120,4 +121,4 @@ Otra forma de acceder sin utilizar la shell reversa, implicaría el mismo princi
 sysadmin@traceback:/etc/update-motd.d$ echo "cp /home/sysadmin/.ssh/authorized_keys /root/.ssh/" >> 00-header 
 ```
 
-Bytez :alien:
+Bytez ;)
