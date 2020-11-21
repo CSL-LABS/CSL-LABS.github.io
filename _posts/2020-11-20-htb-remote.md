@@ -281,6 +281,7 @@ _Elevación de Privilegios_
 
 Al final se obtuvo la conexión reversa con este nuevo nivel de privilegios y se logra la captura del flag. 
 
+Bytez ;)
 
 ## Referencia
 1. <https://recipeforroot.com/runas/>
@@ -291,4 +292,3 @@ Al final se obtuvo la conexión reversa con este nuevo nivel de privilegios y se
     - o	Un blog bastante interesante, con trucos e información de seguridad. 
 4. <https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Methodology%20and%20Resources>
     - EXCELENTE MATERIAL DE ESTUDIO!
-asd
