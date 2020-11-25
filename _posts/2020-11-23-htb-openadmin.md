@@ -3,7 +3,7 @@ title: HTB-OPENADMIN
 author: Christian Gutierrez
 date: 2020-11-24 14:10:00 -0500
 categories: [HackTheBox, Easy]
-tags: [HTB]
+tags: [HTB, pspy, lpf]
 image: /assets/htb/04_openAdmin/portada.PNG
 ---
 ## Decripción del entorno
@@ -149,6 +149,7 @@ Seguimos recolectando información y descubrimos un directorio interesante:
 
 El cual tiene unos archivos **PHP** que, de accederlos de la forma correcta permiten la lectura del archivo `id_rsa` del usuario `Joanna`, no obstante, no encontramos dichos archivos de forma pública en el servidor para consumirlos por el browser, así que entramos a indagar sobre qué otros aplicativos internos están montados y en qué puertos: 
 
+- index.php: 
 ```php
 jimmy@openadmin:/var/www/internal$ cat index.php
 <?php
@@ -264,7 +265,6 @@ jimmy@openadmin:/var/www/internal$ cat index.php
    </body>
 </html>
 ```
-_index.php_
 
 ![Portal Interno](/assets/htb/04_openAdmin/13_portal_interno.png)
 _Datos de despliegue del portal interno_
@@ -334,7 +334,7 @@ joanna ALL=(root) NOPASSWD: ALL
 
 ¿Qué sucedería si cambiamos el contenido del `/etc/sudoers` a esto? Efectivamente, al sobrescribirlo, le estamos indicando al sistema que el usuario **Joanna** podrá ejecutar cualquier programa como **root** sin necesidad de requerir PASSWORD, de esta manera elevamos privilegios.
 
-![Acceso como Root](/assets/htb/04_openAdmin/21_root.png)
+![Acceso como Root](/assets/htb/04_openAdmin/21_root2.png)
 _Acceso como root_
 
 Bytez ;) 
