@@ -3,7 +3,7 @@ title: HTB-OPENADMIN
 author: Christian Gutierrez
 date: 2020-11-24 14:10:00 -0500
 categories: [HackTheBox, Easy]
-tags: [HTB, pspy, lpf]
+tags: [HTB, pspy, lpf, nano]
 image: /assets/htb/04_openAdmin/portada.PNG
 ---
 ## Decripción del entorno
