@@ -3,7 +3,7 @@ title: HTB-OPENADMIN
 author: Christian Gutierrez
 date: 2020-11-24 14:10:00 -0500
 categories: [HackTheBox, Easy]
-tags: [HTB, pspy, lpf, nano]
+tags: [HTB, pspy]
 image: /assets/htb/04_openAdmin/portada.PNG
 ---
 ## Decripción del entorno
@@ -149,7 +149,6 @@ Seguimos recolectando información y descubrimos un directorio interesante:
 
 El cual tiene unos archivos **PHP** que, de accederlos de la forma correcta permiten la lectura del archivo `id_rsa` del usuario `Joanna`, no obstante, no encontramos dichos archivos de forma pública en el servidor para consumirlos por el browser, así que entramos a indagar sobre qué otros aplicativos internos están montados y en qué puertos: 
 
-- index.php: 
 ```php
 jimmy@openadmin:/var/www/internal$ cat index.php
 <?php
