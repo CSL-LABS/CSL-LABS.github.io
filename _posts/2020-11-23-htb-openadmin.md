@@ -14,7 +14,7 @@ image: /assets/htb/04_openAdmin/portada.PNG
 
 ### <span style="color:green">Maquina Objetivo</span>
 
-| OS          | Windows             |
+| OS          | linux             |
 | IP          | 10.10.10.171        |
 | Dificultad  | 4.4/10 / **Easy** |
 | URL         | [**OpenAdmin**](https://www.hackthebox.eu/home/machines/profile/222)    |
