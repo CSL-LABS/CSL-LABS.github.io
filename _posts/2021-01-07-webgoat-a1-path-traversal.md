@@ -109,7 +109,7 @@ public AttackResult uploadFileHandler(
 
 El código es bastante simple, se identifica el comportamiento que habiamos previsto en la línea #6 y se observa que únicamente es aplicado al parametro ``fullName``.
 
-# Path Traversal - #4
+# Path Traversal - 4
 
 La descripción del reto nos indica que el desarrollador esta aburrido con este error y como se da en el parametro ``fullName``, decide no utilizarlo. (**¿En principio, por qué lo usaba :| ?**). Como es costumbre, debemos verificar sí en realidad se realizo la mitigación. 
 
