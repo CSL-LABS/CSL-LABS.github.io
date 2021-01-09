@@ -107,7 +107,7 @@ public AttackResult uploadFileHandler(
 }
 ```
 
-El código es bastante simple, se identifica el comportamiento que habiamos previsto en la línea #6 y se observa que únicamente es aplicado al parametro ```fullName```.
+El código es bastante simple, se identifica el comportamiento que habiamos previsto en la línea #6 y se observa que únicamente es aplicado al parametro ``fullName``.
 
 # Path Traversal - #4
 
